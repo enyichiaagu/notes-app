@@ -18,14 +18,15 @@ function App() {
           <Button color='inherit'>Logout</Button>
         </Toolbar>
       </AppBar>
-      <Container maxWidth='lg' sx={{ pt: 5 }}>
-        <Grid container spacing={5}>
-          <Grid item lg={4}><NoteCard/></Grid>
-          <Grid item lg={4}><Paper sx={{ width: '100%', p: 2 }}>Example</Paper></Grid>
-          <Grid item lg={4}><Paper sx={{ width: '100%', p: 2 }}>Example</Paper></Grid>
-          <Grid item lg={4}><Paper sx={{ width: '100%', p: 2 }}>Example</Paper></Grid>
-          <Grid item lg={4}><Paper sx={{ width: '100%', p: 2 }}>Example</Paper></Grid>
-          <Grid item lg={4}><Paper sx={{ width: '100%', p: 2 }}>Example</Paper></Grid>
+      <Container maxWidth='lg' component='main'  sx={{ py: 5 }}>
+        <Typography variant='h4' component='h2'>Notes</Typography>
+        <Grid container spacing={5} sx={{ py: 5 }}>
+          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><NoteCard /></Grid>
         </Grid>
       </Container>
     </Fragment>
