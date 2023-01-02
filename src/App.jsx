@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { CssBaseline, AppBar, Toolbar, Typography, Button, Container, Box, Grid, Paper } from '@mui/material'
 
 import NoteCard from './components/NoteCard'
+import AddNote from './components/AddNote'
 
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
@@ -21,7 +22,7 @@ function App() {
       <Container maxWidth='lg' component='main'  sx={{ py: 5 }}>
         <Typography variant='h4' component='h2'>Notes</Typography>
         <Grid container spacing={5} sx={{ py: 5 }}>
-          <Grid item lg={4}><NoteCard /></Grid>
+          <Grid item lg={4}><AddNote /></Grid>
           <Grid item lg={4}><NoteCard /></Grid>
           <Grid item lg={4}><NoteCard /></Grid>
           <Grid item lg={4}><NoteCard /></Grid>
