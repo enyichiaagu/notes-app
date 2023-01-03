@@ -1,13 +1,14 @@
 import { useState, Fragment, useEffect } from 'react'
 
-import { Card, CardActionArea, SvgIcon, Typography } from "@mui/material"
+import { Button, Card, CardActionArea, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, SvgIcon, Typography } from "@mui/material"
 
 
 function AddNote() {
 
-    const [ open, setOpen ] = useState(false)
+    const [ open, setOpen ] = useState(true)
 
     const openModal = () => setOpen(true)
+    const closeModal = () => setOpen(false)
 
     return (
         <Fragment>
@@ -20,6 +21,16 @@ function AddNote() {
                     <Typography variant='button' color='primary'>Create new note</Typography>
                 </CardActionArea>
             </Card>
+            <Dialog open={open} onClose={closeModal}>
+                <DialogTitle>Create new note</DialogTitle>
+                <DialogContent dividers>
+                    <DialogContentText>Ma pa mi</DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={closeModal}>Cancel</Button>
+                    <Button variant='contained'>Save</Button>
+                </DialogActions>
+            </Dialog>
         </Fragment>
     )
 }
