@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 
-import { Button, Card, CardActionArea, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, SvgIcon, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, SvgIcon, TextField, Typography } from '@mui/material'
 
 function NoteCard({ add, title='', text='' }) {
 
