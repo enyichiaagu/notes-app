@@ -1,6 +1,8 @@
-import { useState, Fragment, useEffect } from 'react'
+import { useState, Fragment } from 'react'
 
-import { Button, Card, CardActionArea, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, SvgIcon, Typography } from "@mui/material"
+import { Card, CardActionArea, SvgIcon, Typography } from '@mui/material'
+
+import EditNoteModal  from './EditNoteModal'
 
 
 function AddNote() {
@@ -21,16 +23,7 @@ function AddNote() {
                     <Typography variant='button' color='primary'>Create new note</Typography>
                 </CardActionArea>
             </Card>
-            <Dialog open={open} onClose={closeModal}>
-                <DialogTitle>Create new note</DialogTitle>
-                <DialogContent dividers>
-                    <DialogContentText>Ma pa mi</DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={closeModal}>Cancel</Button>
-                    <Button variant='contained'>Save</Button>
-                </DialogActions>
-            </Dialog>
+            <EditNoteModal open={open} close={closeModal} />
         </Fragment>
     )
 }
