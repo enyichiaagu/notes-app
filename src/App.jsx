@@ -21,8 +21,8 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container maxWidth='lg' component='main'  sx={{ py: 5 }}>
-        {/* <Home /> */}
-        <Auth />
+        <Home />
+        {/* <Auth /> */}
       </Container>
     </Fragment>
   )

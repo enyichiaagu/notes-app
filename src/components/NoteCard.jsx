@@ -1,13 +1,21 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, SvgIcon, TextField, Typography } from '@mui/material'
+import { Button, Card, CardActionArea, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, SvgIcon, TextField, Typography } from '@mui/material'
 
 function NoteCard({ add, title='', text='' }) {
 
     const [ open, setOpen ] = useState(false)
+    const [ content, setContent ] = useState({ title, text })
 
     const openModal = () => setOpen(true)
     const closeModal = () => setOpen(false)
+
+    const handleContentChange = (e) => {
+        const { name, value } = e.target
+        setContent({ ...content, [name]: value })
+    }
+
+    useEffect(() => console.log(content), [content])
 
     return (
         <Fragment>
@@ -28,8 +36,8 @@ function NoteCard({ add, title='', text='' }) {
                     <Card sx={{ width: '100%' }}>
                     <CardActionArea onClick={openModal}>
                         <CardContent>
-                            <Typography variant='h6' component='header' gutterBottom>{title}</Typography>
-                            <Typography height='10rem' overflow='hidden'>{text}</Typography>
+                            <Typography variant='h6' component='header' gutterBottom>{content.title}</Typography>
+                            <Typography height='10rem' overflow='hidden'>{content.text}</Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
@@ -43,19 +51,23 @@ function NoteCard({ add, title='', text='' }) {
                 <DialogTitle>Create new note</DialogTitle>
                 <DialogContent>
                     <TextField 
+                        name='title'
                         variant='filled' 
                         label='Title' 
                         margin='normal' 
-                        defaultValue={title}
+                        value={content.title}
+                        onChange={handleContentChange}
                         fullWidth 
                     />
                     <TextField 
+                        name='text'
                         multiline 
                         variant='filled' 
                         label='Note' 
                         margin='normal' 
                         rows={10}
-                        defaultValue={text}
+                        value={content.text}
+                        onChange={handleContentChange}
                         fullWidth
                     />
                 </DialogContent>
