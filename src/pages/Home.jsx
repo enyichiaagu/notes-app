@@ -15,15 +15,16 @@ function Home() {
         { id: 4, title: "Gratitude", text: "As I reflect on the past year and look ahead to the new one, I can't help but feel grateful for all that I have. I have a roof over my head, food to eat, and people in my life who love and support me. I know that not everyone is as fortunate, and it's important to remember to be grateful for the things we often take for granted. I'm going to try to focus on the positive things in my life and make an effort to spread joy and gratitude to those around me." }
     ]
 
-    function getNotes() {
-        // Calling API
-        setData(mockData)
-    }
-
     useEffect(() => {
         getNotes()
     }, [])
 
+
+    function getNotes() {
+        // Calling API
+        setData(mockData)
+    }
+    
     return (
         <Fragment>
             <Typography variant='h4' component='h2'>Notes</Typography>

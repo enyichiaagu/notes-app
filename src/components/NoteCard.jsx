@@ -19,6 +19,10 @@ function NoteCard({ add, title='', text='' }) {
         // console.log(content)
     }
 
+    function deleteNote() {
+        // console.log(content)
+    }
+
     return (
         <Fragment>
             <Card sx={{ width: '100%', height: '18rem', position: 'relative' }}>
@@ -42,7 +46,7 @@ function NoteCard({ add, title='', text='' }) {
                         </CardActionArea>
                         <CardActions sx={{ position: 'absolute', bottom: 0 }}>
                             <Button onClick={openModal}>Edit</Button>
-                            <Button>Delete</Button>
+                            <Button onClick={deleteNote} color='error'>Delete</Button>
                         </CardActions>
                     </Fragment>
             }
