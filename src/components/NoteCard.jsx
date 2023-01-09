@@ -1,23 +1,15 @@
 import { Fragment, useState } from 'react'
 
-import { Button, Card, CardActionArea, CardActions, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, SvgIcon, TextField, Typography } from '@mui/material'
+import { Button, Card, CardActionArea, CardActions, CardContent, SvgIcon, Typography } from '@mui/material'
+
+import NoteModal from './NoteModal'
 
 function NoteCard({ add, title='', text='' }) {
 
     const [ open, setOpen ] = useState(false)
-    const [ content, setContent ] = useState({ title, text })
 
     const openModal = () => setOpen(true)
     const closeModal = () => setOpen(false)
-
-    const handleContentChange = (e) => {
-        const { name, value } = e.target
-        setContent({ ...content, [name]: value })
-    }
-
-    function saveNote() {
-        // console.log(content)
-    }
 
     function deleteNote() {
         // console.log(content)
@@ -40,8 +32,8 @@ function NoteCard({ add, title='', text='' }) {
                     <Fragment>
                         <CardActionArea onClick={openModal}>
                             <CardContent>
-                                <Typography variant='h6' component='header' gutterBottom>{content.title}</Typography>
-                                <Typography height='10rem' overflow='hidden'>{content.text}</Typography>
+                                <Typography variant='h6' component='header' gutterBottom>{title}</Typography>
+                                <Typography height='10rem' overflow='hidden'>{text}</Typography>
                             </CardContent>
                         </CardActionArea>
                         <CardActions sx={{ position: 'absolute', bottom: 0 }}>
@@ -51,37 +43,7 @@ function NoteCard({ add, title='', text='' }) {
                     </Fragment>
             }
             </Card>
-
-            <Dialog open={open} onClose={closeModal} fullWidth>
-                <DialogTitle>Create new note</DialogTitle>
-                <DialogContent>
-                    <TextField 
-                        name='title'
-                        variant='filled' 
-                        label='Title' 
-                        margin='normal' 
-                        value={content.title}
-                        onChange={handleContentChange}
-                        fullWidth 
-                    />
-                    <TextField 
-                        name='text'
-                        multiline 
-                        variant='filled' 
-                        label='Note' 
-                        margin='normal' 
-                        rows={10}
-                        value={content.text}
-                        onChange={handleContentChange}
-                        fullWidth
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={closeModal}>Cancel</Button>
-                    <Button variant='contained' onClick={saveNote}>Save</Button>
-                </DialogActions>
-            </Dialog>
-
+            <NoteModal open={open} closeModal={closeModal} title={title} text={text} />
         </Fragment>
     )
 
