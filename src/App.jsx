@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
-import { CssBaseline, AppBar, Toolbar, Typography, Button, Container } from '@mui/material'
 
-import Home from './pages/Home'
-import Auth from './pages/Auth'
+import { Outlet } from 'react-router-dom'
+
+import { CssBaseline, AppBar, Toolbar, Typography, Button, Container } from '@mui/material'
 
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
@@ -21,8 +21,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container maxWidth='lg' component='main'  sx={{ py: 5 }}>
-        <Home />
-        {/* <Auth /> */}
+        <Outlet />
       </Container>
     </Fragment>
   )
