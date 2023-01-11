@@ -7,17 +7,11 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import { getUser } from './utils/api'
 
-export function loader() {
-  // const auth = await getUser()
-  // return auth ? auth : redirect('/auth')
-  // return redirect("/")
-  console.log('ran')
+export async function loader() {
   return null
 }
 
 function App() {
-  
-  // const auth = useLoaderData()
 
   return (
     <Fragment>

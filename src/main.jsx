@@ -14,7 +14,7 @@ const router = createBrowserRouter(
     >
       <Route 
         index 
-        element={<Home />} 
+        element={<Home />}
       />
       <Route 
         path='auth' 
