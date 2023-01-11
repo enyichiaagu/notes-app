@@ -1,16 +1,24 @@
 import { Fragment } from 'react'
-
-import { Outlet } from 'react-router-dom'
-
+import { Outlet, useLoaderData, redirect } from 'react-router-dom'
 import { CssBaseline, AppBar, Toolbar, Typography, Button, Container } from '@mui/material'
-
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+import { getUser } from './utils/api'
+
+export function loader() {
+  // const auth = await getUser()
+  // return auth ? auth : redirect('/auth')
+  // return redirect("/")
+  console.log('ran')
+  return null
+}
 
 function App() {
   
+  // const auth = useLoaderData()
+
   return (
     <Fragment>
       <CssBaseline />

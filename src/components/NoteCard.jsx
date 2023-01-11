@@ -12,6 +12,7 @@ function NoteCard({ add, title='', text='' }) {
     const closeModal = () => setOpen(false)
 
     function deleteNote() {
+        confirm(`Are you sure you want to delete "${title}"?`)
         // console.log(content)
     }
 
